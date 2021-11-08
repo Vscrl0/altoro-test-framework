@@ -17,4 +17,14 @@ public enum Account {
         this.id = id;
     }
 
+    public static Account selectAccount(String name) {
+        switch (name) {
+            case "CHECKING":
+                return Account.CHECKING;
+            case "CORPORATE":
+                return Account.CORPORATE;
+        }
+        throw new IllegalArgumentException();
+    }
+
 }

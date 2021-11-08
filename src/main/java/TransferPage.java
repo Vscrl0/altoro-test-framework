@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.Select;
 
 public class TransferPage extends AbstractPage {
@@ -7,6 +8,7 @@ public class TransferPage extends AbstractPage {
     private static final By toAccount = By.id("toAccount");
     private static final By transferButton = By.id("transfer");
     private static final By transferAmount = By.id("transferAmount");
+    private static final By successfulTransferMessage = By.id("_ctl0__ctl0_Content_Main_postResp");
 
     public void transfer(String amount, Account fromAccount, Account toAccount) {
         Select fromDropdown = new Select(Browser.driver.findElement(TransferPage.fromAccount));
@@ -23,5 +25,8 @@ public class TransferPage extends AbstractPage {
         TransferPage.title = "Altoro Mutual";
     }
 
+    public String getSuccessMessage() {
+        return Browser.driver.findElement(successfulTransferMessage).getText();
+    }
 
 }

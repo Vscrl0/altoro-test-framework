@@ -17,10 +17,14 @@ public class LoginPage extends AbstractPage {
         Browser.driver.findElement(passwordBox).sendKeys(password);
         Browser.driver.findElement(submitButton).click();
     }
+
     public boolean isFailedLogin() {
-        try{
+        if(this.isAlertPresent()) {
+            return true;
+        }
+        try {
             return Browser.driver.findElement(failureMessage).isDisplayed();
-        }catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
 

@@ -18,6 +18,7 @@ public class Browser {
     public static void close() {
         driver.close();
     }
+
     public static void quit() {
         driver.quit();
     }

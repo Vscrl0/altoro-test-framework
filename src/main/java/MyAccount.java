@@ -36,6 +36,7 @@ public class MyAccount extends AbstractPage {
         return balance;
 
     }
+
     public boolean isAdmin() {
         return Browser.driver.findElement(By.cssSelector(".fl > h1:nth-child(1)")).getText().equals("Hello Admin User");
     }
