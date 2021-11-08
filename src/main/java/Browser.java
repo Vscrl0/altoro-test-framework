@@ -1,6 +1,8 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Browser {
     static WebDriver driver;
@@ -21,11 +23,15 @@ public class Browser {
     }
 
     public static void useFirefox() {
-        Browser.driver = new FirefoxDriver();
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--headless");
+        Browser.driver = new FirefoxDriver(options);
     }
 
     public static void useChrome() {
-        Browser.driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        Browser.driver = new ChromeDriver(options);
     }
 
 }
