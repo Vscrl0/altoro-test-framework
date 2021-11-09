@@ -7,12 +7,5 @@ public abstract class AbstractPage {
     public void goTo() {
         Browser.goTo(url);
     }
-    public boolean isAlertPresent() {
-        try {
-            Browser.driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException Ex) {
-            return false;
-        }
-    }
+
 }

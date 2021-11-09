@@ -1,6 +1,11 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class TransferPage extends AbstractPage {
     //locators
@@ -16,6 +21,8 @@ public class TransferPage extends AbstractPage {
         fromDropdown.selectByVisibleText(fromAccount.getName());
         toDropdown.selectByVisibleText(toAccount.getName());
         Browser.driver.findElement(transferAmount).sendKeys(amount);
+        WebDriverWait wait = new WebDriverWait(Browser.driver,Duration.ofSeconds(1));
+        wait.until(ExpectedConditions.elementToBeClickable(transferButton));
         Browser.driver.findElement(transferButton).click();
 
     }
@@ -28,5 +35,4 @@ public class TransferPage extends AbstractPage {
     public String getSuccessMessage() {
         return Browser.driver.findElement(successfulTransferMessage).getText();
     }
-
 }

@@ -9,7 +9,7 @@ public class NavBar {
     private static final By feedbackButton = By.id("HyperLink4");
     private static final By searchBox = By.id("query");
 
-    public static boolean isLoggedIn() {
+    public boolean isLoggedIn() {
         return Browser.driver.findElement(loginButton).getText().equals("Sign Off");
     }
 

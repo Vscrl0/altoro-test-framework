@@ -19,11 +19,11 @@ public class LoginPage extends AbstractPage {
     }
 
     public boolean isFailedLogin() {
-        if(this.isAlertPresent()) {
+        if(Browser.isAlertPresent()) {
             return true;
         }
         try {
-            return Browser.driver.findElement(failureMessage).isDisplayed();
+            return Browser.driver.findElement(failureMessage).getText().contains("Login Failed");
         } catch (Exception e) {
             return false;
         }
