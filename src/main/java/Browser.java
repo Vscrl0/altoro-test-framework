@@ -18,6 +18,7 @@ public class Browser {
     public static void goTo(String url) {
         driver.get(url);
     }
+    
 
     public static String title() {
         return driver.getTitle();
@@ -46,13 +47,13 @@ public class Browser {
     }
 
     public static boolean isAlertPresent() {
-        try{
+        try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
             wait.until(ExpectedConditions.alertIsPresent());
             Alert alert = driver.switchTo().alert();
             driver.switchTo().alert().accept();
             return true;
-        }catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }

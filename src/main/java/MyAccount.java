@@ -9,6 +9,7 @@ public class MyAccount extends AbstractPage {
     private static final By accountList = By.id("listAccounts");
     private static final By goButton = By.id("btnGetAccount");
     private static final By accountBalance = By.cssSelector(".fl > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2)");
+    private static final By helloText = By.cssSelector(".fl > h1:nth-child(1)");
 
     public MyAccount() {
         MyAccount.url = "https://demo.testfire.net/bank/main.jsp";
@@ -37,8 +38,8 @@ public class MyAccount extends AbstractPage {
 
     }
 
-    public boolean isAdmin() {
-        return Browser.driver.findElement(By.cssSelector(".fl > h1:nth-child(1)")).getText().equals("Hello Admin User");
+    public String getHelloText() {
+        return Browser.driver.findElement(helloText).getText();
     }
 
 }
